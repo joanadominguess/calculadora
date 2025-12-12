@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora</title>
+<style>
+body {
+font-family: Arial;
+text-align: center;
+background-color: #f4f4f4;
+padding: 50px;
+}
+input, select, button {
+padding: 10px;
+margin: 5px;
+font-size: 16px;
+}
+.resultado {
+margin-top: 20px;
+font-size: 20px;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+<h1>Calculadora com Switch Case</h1>
+<input type="number" id="n1" placeholder="Digite o primeiro número">
+<select id="operacao">
+<option value="+">+</option>
+<option value="-">-</option>
+<option value="*">*</option>
+<option value="/">/</option>
+</select>
+<input type="number" id="n2" placeholder="Digite o segundo número">
+<br>
+<button onclick="calcular()">Calcular</button>
+<div class="resultado" id="resultado"></div>
+
+css
+
+<script>
+function calcular() {
+let n1 = Number(document.getElementById('n1').value);
+let n2 = Number(document.getElementById('n2').value);
+let operacao = document.getElementById('operacao').value;
+let resultado;
+switch (operacao) {
+case '+':
+resultado = n1 + n2;
+break;
+case '-':
+resultado = n1 - n2;
+break;
+case '*':
+resultado = n1 * n2;
+break;
+case '/':
+if (n2 === 0) {
+resultado = "Divisão por zero não é permitida";
+} else {
+resultado = n1 / n2;
+}
+break;
+default:
+resultado = "Operação inválida";
+break;
+}
+document.getElementById('resultado').innerHTML = `Resultado:
+<strong>${resultado}</strong>`;
+}
+</script>
+</body>
+</html>
